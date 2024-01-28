@@ -1,0 +1,266 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(243, 243, 243);
+}
+
+nav {
+    position: absolute;
+}
+
+#nav-box {
+    background-color: aqua;
+    height: 50px;
+    width: 100%;
+    /* margin-bottom: 10px; */
+    /* position: fixed; */
+}
+
+article {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+article > * {
+    width: 80vw;
+    height: auto;
+    background-color: white;
+    padding: 2vw;
+    border-radius: 50px;
+    padding-bottom: 50px;
+}
+
+h1, h2, h3, h4, ol, ul, li, p {
+    margin-bottom: 1em;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+ul {
+    list-style: square;
+    padding-left: 50px;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 3em;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 2.5em;
+}
+
+p, li {
+    font-size: 1em;
+}
+
+table {
+    border: solid;
+    border-color: rgb(80, 80, 80);
+    width: 100%;
+}
+
+th {
+    font-weight: 600;
+}
+
+tr {
+    background-color: rgb(226, 252, 250);
+}
+
+td {
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+}
+
+#banner {
+    justify-content: center;
+    display: flex;
+    animation: fadeIn 1s;
+    overflow: hidden;
+}
+
+#banner img {
+    border-radius: 10px;
+}
+
+#banner h2 {
+    color: white;
+    width: auto;
+    font-size: 2em;
+    margin: auto;
+    padding: auto;
+}
+
+#banner p {
+    color: red;
+    /* margin: 5%; */
+    margin: auto;
+    padding: auto;
+    font-weight: 500;
+}
+
+#banner-content {
+    background-color: rgba(0, 0, 0, 0.95);
+    /* opacity: 70%; */
+    display: flex;
+    position: fixed;
+    max-height: 50px;
+    margin-top: 5%;
+    padding: 5px;
+    width: 80vw;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+#banner img {
+    height: 50px;
+}
+
+.banner-left {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-middle {
+    width: 60%;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: upDown 10s linear infinite;
+}
+
+.banner-middle * {
+    justify-content: center;
+}
+
+.banner-right {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+#offer1 {
+    position: fixed;
+    display: flex;
+    /* vertical-align: top; */
+    margin-bottom: 50px;
+}
+
+#offer2 {
+    position: fixed;
+    display: flex;
+    /* vertical-align: bottom; */
+    margin-top: 72px;
+    color: white;
+}
+
+#timer {
+    display: flex;
+}
+
+.timer-container {
+    display: flex;
+    margin: 5px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.timer-container p {
+    color: black;
+}
+
+#close-banner {
+    display: flex;
+    position: fixed;
+    justify-self: right;
+    padding-bottom: 0px;
+}
+
+#close-banner p {
+    margin: 5px;
+    font-size: 2em;
+    color: white;
+}
+
+#popup-outer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#popup {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-radius: 15px;
+    padding: 12vh;
+}
+
+#popup-content {
+    background-color: white;
+    z-index: 400;
+}
+
+#popup-content > * {
+    margin: 15px;
+}
+
+#x-box {
+    width: 100%;
+    justify-content: right;
+    align-self: flex-start;
+}
+
+#x-box > p {
+    color: white;
+    font-size: 3em;
+    margin-right: 7%;
+    margin-top: 7%;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0%; }
+    100% { opacity: 100%; }
+}
+
+@keyframes upDown {
+    0%, 45%, 100% {
+        transform: translateY(24px);
+      }
+    50%, 95% {
+        transform: translateY(-36px);
+    }
+}

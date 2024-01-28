@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>William Bohn - Vivint Test</title>
+</head>
+<body>
+    <div id="banner-outer">
+        <div id="banner">
+            <div id="banner-content">
+                <div class="banner-left" class="banner-clickable">
+                    <img src="picture.jpg" alt="cat" class="banner-clickable">
+                </div>
+                <div class="banner-middle" class="banner-clickable">
+                    <div id="offer1" class="banner-clickable">
+                        <h2>Hurry! You can't say no!</h2>
+                    </div>
+                    <div id="offer2" class="banner-clickable">
+                        <div id="timer">
+                            <div class="timer-container">
+                                <h5 id="days">00</h5><p>d</p>
+                            </div>
+                            <div class="timer-container">
+                                <h5 id="hours">00</h5><p>h</p>
+                            </div>
+                            <div class="timer-container">
+                                <h5 id="minutes">00</h5><p>m</p>
+                            </div>
+                            <div class="timer-container">
+                                <h5 id="seconds">00</h5><p>s</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-right">
+                    <p id="get-started" class="banner-clickable">Get Started</p>
+                    <div id="close-banner"><p>✕</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup-outer" style="display: none;">
+        <div id="x-box" style="display: flex;">
+            <p>✕</p>
+        </div>
+        <div id="popup">
+            <div id="popup-content">
+                <h2>Deets</h2>
+                <h3>Details to follow</h3>
+                <p>What do you wanna buy??</p>
+            </div>
+        </div>
+    </div>
+    <article id="article">
+        <div>
+            <h2>Optimization Proposal</h2>
+            <div>
+                <h3>PROBLEM</h3>
+                <p>Website load speed is slow. This causes people to click off our sites or even lose trust in our brand.</p>
+            </div>
+            <div>
+                <h3>DISCOVERY</h3>
+                <ol>
+                    <li>Loading pages on mobile felt slow.</li>
+                    <li>Loaded vivint.com using dev tools to throttle.</li>
+                    <ul>
+                        <li>Observed that the phone number on the page changed - This could erode trust</li>
+                    </ul>
+                    <li>Ran performance tool in dev tools to load page.</li>
+                    <ul>
+                        <li>Observed that scripting took 20 seconds</li>
+                    </ul>
+                    <li>Ran a lighthouse report using the developer tools. (attached)</li>
+                    <ul>
+                        <li>Noted that JavaScript execution takes 8.1 seconds.</li>
+                        <li>Discovered a large amount of trackers on the website that each need different endpoints to respond.</li>
+                        <li>Observed that our images are PNG</li>
+                    </ul>
+                    <li>Ran a performance insights report using developer tools (cache disabled) TTI below (time to interactive).</li>
+                    <table>
+                        <thead><th>Network</th><th>CPU</th><th>Time</th></thead>
+                        <tr><td>Slow 3G</td><td>6x slowdown</td><td>DNF</td></tr>
+                        <tr><td>Slow 3G</td><td>No slowdown</td><td>DNF</td></tr>
+                        <tr><td>Fast 3G</td><td>6x slowdown</td><td>27.74</td></tr>
+                        <tr><td>Fast 3G</td><td>4x slowdown</td><td>22.45</td></tr>
+                        <tr><td>Fast 3G</td><td>No slowdown</td><td>9.3</td></tr>
+                        <tr><td>No Throttling</td><td>6x slowdown</td><td>26.56</td></tr>
+                        <tr><td>No Throttling</td><td>No slowdown</td><td>2.17</td></tr>
+                    </table>
+                    <li>Performance Test DOM Load time</li>
+                    <table>
+                        <thead><th>Network</th><th>CPU</th><th>Time</th></thead>
+                        <tr><td>Slow 3G</td><td>6x slowdown</td><td>37.51</td></tr>
+                        <tr><td>Slow 3G</td><td>No slowdown</td><td>31.46</td></tr>
+                        <tr><td>Fast 3G</td><td>6x slowdown</td><td>16.57</td></tr>
+                        <tr><td>Fast 3G</td><td>4x slowdown</td><td>11.81</td></tr>
+                        <tr><td>Fast 3G</td><td>No slowdown</td><td>9.12</td></tr>
+                        <tr><td>No Throttling</td><td>6x slowdown</td><td>9.69</td></tr>
+                        <tr><td>No Throttling</td><td>No slowdown</td><td>0.83</td></tr>
+                    </table>
+                </ol>
+                <div style="display: flex; justify-content: center;">
+                    <img src="graph.jpg" alt="a graph of the results">
+                </div>
+            </div>
+            <div>
+                <h3>CONCLUSION</h3>
+                <p>From this limited testing we can draw a few preliminary conclusions.
+                    <br><br>Network traffic causes large slowdowns. This is likely due to the large number of enpoints being hit each load. Also, using PNGs for images is another source of slowdown.
+                    <br><br>From the attached chart we see several things:
+                </p>
+                <ul>
+                    <li>slow 3g Fails to complete test as far as Time To Interactive goes.</li>
+                    <li>fast 3g completes the test even with high CPU throttling.</li>
+                    <li>Throttling the network impedes DOM load heavily.</li>
+                    <li>Throttling CPU impedes TTI more than it impedes DOM load</li>
+                </ul>
+                <p>NOTE! Test needs more passes</p>
+            </div>
+            <div>
+                <h3>PROPOSAL</h3>
+                <p>Reduce page load time to increase customer retention.</p>
+            </div>
+            <div>
+                <h3>PLAN</h3>
+                <div>
+                    <h4>Reducing JS Trackers</h4>
+                    <ol>
+                        <li>Run several lighthouse tests to get a good average time it takes for each js tracker to load.</li>
+                        <li>Analyse each js tracker and create a few lists.</li>
+                        <ul>
+                            <li>ranked from slowest to fastest</li>
+                            <li>highest priority to lowest priority</li>
+                        </ul>
+                        <li>Based on findings, reduce number of js tracker.</li>
+                        <li>Run tests to see if reducing load time causes higher retention.</li>
+                        <li>Determine if the higher retention justifies the lower amount of data collected.</li>
+                        <li>Continue to remove non-essential code and testing until we've reached diminishing returns.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4>Compression</h4>
+                    <ol>
+                        <li>Compress or change image formats on our images.</li>
+                        <li>Test to see if the lower latency is enough to increase retention.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h4>Optimization</h4>
+                    <ol>
+                        <li>Review Code.</li>
+                        <li>Reduce where obvious.</li>
+                        <li>Test functionality.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+</html>
