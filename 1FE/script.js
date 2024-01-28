@@ -4,8 +4,6 @@ let closebanner = document.getElementById('close-banner')
 let popUp = document.getElementById('popup-outer')
 let popX = document.getElementById('x-box')
 
-
-
 function bringUp(ev) {
     // Function brings up the popup
     popUp.style.display = "flex"
@@ -27,7 +25,6 @@ closebanner.addEventListener('click', ev => {
 popX.addEventListener('click', ev => {
     popUp.style.display = "none"
 });
-
 
 let countDownTimerTarget = new Date("Feb 1, 2024 00:00:00").getTime();
 

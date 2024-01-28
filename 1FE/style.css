@@ -83,7 +83,7 @@ tr {
 }
 
 td {
-    padding: 5px;
+    padding: 0.5vw;
     border: solid;
     border-width: 1px;
 }
@@ -249,6 +249,10 @@ td {
     font-size: 3em;
     margin-right: 7%;
     margin-top: 7%;
+}
+
+article img {
+    width: 100%;
 }
 
 @keyframes fadeIn {
